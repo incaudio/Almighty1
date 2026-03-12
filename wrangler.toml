@@ -1,0 +1,21 @@
+# Cloudflare configuration for deploying the Vite build output as a Workers Site or Pages project.
+#
+# 1) Replace the placeholders below (account_id, project_name, zone_id) with your Cloudflare values.
+# 2) To publish as a Cloudflare Pages site, you can run:
+#      npx wrangler pages publish dist --project-name=<project_name>
+#
+# 3) To publish as a Workers Site (static site hosted on Workers) you can run:
+#      npx wrangler publish
+
+name = "almighty1"
+account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
+compatibility_date = "2026-03-12"
+workers_dev = true
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
+
+# Optional: route + zone_id can be set when deploying to a custom domain.
+# route = "example.com/*"
+# zone_id = "YOUR_ZONE_ID"
