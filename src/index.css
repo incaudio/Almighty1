@@ -1,0 +1,236 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --radius: 0rem;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 142 72% 29%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 142 36% 95%;
+    --secondary-foreground: 142 72% 20%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 142 36% 95%;
+    --accent-foreground: 142 72% 29%;
+    --destructive: 0 84.2% 60.2%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 142 72% 29%;
+    --chart-1: 142 72% 29%;
+    --chart-2: 142 45% 45%;
+    --chart-3: 142 30% 60%;
+    --chart-4: 142 20% 75%;
+    --chart-5: 142 10% 90%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 142 72% 29%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 142 36% 95%;
+    --sidebar-accent-foreground: 142 72% 29%;
+    --sidebar-border: 0 0% 89%;
+    --sidebar-ring: 142 72% 29%;
+    --destructive-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    /* Keep it light even in dark mode for this specific artistic style if requested, 
+       but standard practice is to have a dark version. However, the requirement 
+       is very specific about white background. I'll make dark mode also look like light mode for this app. */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 142 72% 29%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 142 36% 95%;
+    --secondary-foreground: 142 72% 20%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 142 36% 95%;
+    --accent-foreground: 142 72% 29%;
+    --destructive: 0 84.2% 60.2%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 142 72% 29%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .watercolor-blur {
+    filter: blur(40px) opacity(0.5);
+  }
+  .watercolor-mask {
+    mask-image: radial-gradient(circle, black, transparent 80%);
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) translateX(10px) rotate(10deg);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(-100px) translateY(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes greenPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 139, 34, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(34, 139, 34, 0.6);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 25s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.6s ease-out forwards;
+}
+
+.animate-green-pulse {
+  animation: greenPulse 2s ease-in-out infinite;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Green glow effect */
+.green-glow {
+  box-shadow: 0 0 30px rgba(34, 139, 34, 0.4), 0 0 60px rgba(34, 139, 34, 0.2);
+}
+
+.green-glow-strong {
+  box-shadow: 0 0 40px rgba(34, 139, 34, 0.6), 0 0 80px rgba(34, 139, 34, 0.3);
+}
